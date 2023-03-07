@@ -13,7 +13,7 @@ internal class Program
 		while (repeat)
 		{
 			int menuInput = program.GetMenu();
-			// Console.Clear();
+			Console.Clear();
 
 			if (menuInput > 0 && menuInput < 6)
 			{
@@ -59,12 +59,12 @@ internal class Program
 							{
 								Console.WriteLine(Hash.GetHashedValue(sha512, keyInput));
 							}
-							break;
-						default: Console.WriteLine("Something went wrong.");
+							break;							
+						default:
+							Console.Clear(); 
+							error = program.ErrorMessage();
 							break;
 					}
-
-
 				}
 				else
 				{
@@ -78,10 +78,8 @@ internal class Program
 				error = program.ErrorMessage();
 			}
 			Console.WriteLine(error);
-			Thread.Sleep(2000);
-			
+			Thread.Sleep(2000);	
 		}
-
 	}
 	public string ErrorMessage()
 	{
